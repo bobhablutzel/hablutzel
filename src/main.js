@@ -36,6 +36,7 @@ import DisciplineImplementation from "@/views/framework/DisciplineImplementation
 import DisciplineOversight from "@/views/framework/DisciplineOversight"
 import DisciplineProductPlatform from "@/views/framework/DiscplinePlatformProduct"
 import DisciplineBusinessStrategy from "@/views/framework/DisciplineBusinessStrategy"
+import ARSCIV_X from "@/views/academy/ARSCIV-X"
 
 
 // Create the application
@@ -65,7 +66,8 @@ const router = createRouter({
                 { path: '', name: 'AcademyOverview', component: AcademyOverview },
                 { path: 'intro', name: 'ArchitectureIntro', component: ArchitectureIntro },
                 { path: 'becoming', name: 'BecomingAnArchitect', component: BecomingAnArchitect },
-                { path: 'defining', name: 'DefiningArchitecture', component: DefiningArchitecture }
+                { path: 'defining', name: 'DefiningArchitecture', component: DefiningArchitecture },
+                { path: 'arsciv', name: 'ARSCIV-X', component: ARSCIV_X }
             ]
         },
         { path: '/framework', name: 'Framework', component: Framework,

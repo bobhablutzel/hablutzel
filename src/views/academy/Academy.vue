@@ -14,6 +14,7 @@ export default {
       topics: [
         { label:'What is Architecture?', to: {name: 'ArchitectureIntro' }},
         { label:'Becoming an Architect', to: { name: 'BecomingAnArchitect'}},
+        { label:'ARSCIV', to: {name: 'ARSCIV-X' }}
       ]
     }
   }
