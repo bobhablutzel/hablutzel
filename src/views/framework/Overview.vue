@@ -8,7 +8,7 @@
           Discipline Map
         </template>
         <template #content>
-          <ImageMap :image-map='this.imageMap()' src="/images/EA Framework.svg"/>
+          <image-map :image-map='this.imageMap()' src="/images/EA Framework.svg"/>
           <span class="caption">The Scalable Enterprise Architecture Discipline Map</span>
           <ul>
             <li>Defines <router-link :to="{ name: 'FrameworkFiveDisciplines'}">the five major architecture disciplines</router-link> and their function;</li>

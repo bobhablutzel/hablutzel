@@ -1,7 +1,7 @@
 <template>
-  <ImageMap :image-map='this.imageMap()' src="/images/EA Framework.svg" class="imageMap" on="Products & Platforms"/>
+  <image-map :image-map='this.imageMap()' src="/images/EA Framework.svg" class="imageMap" on="Portfolio Management"/>
   <div class="text-container">
-    <p>Product and Platform...</p>
+    <p>Portfolio Management...</p>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import ImageMap from "@/components/ImageMap"
 import frameworkImageMap from "@/views/framework/FrameworkImageMap"
 
 export default {
-  name: "DisciplinePlatformProduct",
+  name: "DisciplinePortfolioManagement",
   components: { ImageMap },
   methods: {
     imageMap() { return frameworkImageMap }

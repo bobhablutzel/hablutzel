@@ -21,8 +21,11 @@ export default {
         { label:'Home', to: {name: 'Home' }},
         { label:'Academy', to: {name: 'AcademyOverview' }},
         { label:'Framework', to: {name: 'FrameworkIntroduction'}},
+        { label:'Library', to: {name: 'LibraryOverview'}}
       ],
       about: [
+        { icon: 'pi pi-fw pi-arrow-left', command: () => {this.$router.go(-1)} },
+        { icon: 'pi pi-fw pi-arrow-right', command: () => {this.$router.go(1)} },
         { label:'About', to: {name: 'About'}},
       ]
     }
@@ -72,6 +75,36 @@ export default {
   font-size: 0.8rem;
   text-align: center;
 }
+
+
+.jd {
+  display: block;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid black;
+  font-family: Courier, sans-serif;
+  font-size: 0.9rem;
+}
+
+.banner {
+  display: block;
+  margin: 10px 2px 10px 2px;
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: var(--surface-b)
+}
+
+.note {
+  display: block;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid black;
+  font-style: italic;
+  font-size: 1rem;
+}
+
 
 html {
   height: 100%;

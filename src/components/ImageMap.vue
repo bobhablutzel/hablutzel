@@ -24,8 +24,10 @@ The component has the following properties:
 --->
 
 <template>
-  <div ref="shell" @resize="resizeMap()" :style="cssVars" class="container">
-    <img :src="this.src" :alt="this.alt" class="image" ref="image" @load="resizeMap"/>
+  <div ref="container" :style="cssVars" class="container" @mouseenter="resizeMap">
+      <slot>
+        <img :src="this.src" :alt="this.alt" class="image" ref="image"/>
+      </slot>
     <canvas ref="canvas" class="imageMapCanvas"
             @mousemove="trackMouse($event)" @mouseleave="clearCurrentMap()"
             @click="navigate()" @resize="resizeMap($event)"/>
@@ -52,12 +54,13 @@ export default {
     }
   },
 
+
+
   mounted() {
 
     // Detect when the window size changes, so that we can react to the image size changing
     window.addEventListener('resize', this.resizeMap )
-    this.resizeMap()
-
+    this.draw()
   },
 
   unmounted() {
@@ -69,33 +72,36 @@ export default {
     // Called when the image size changes; resizes the canvas and
     // recalculates the scale of the canvas to image map
     resizeMap() {
-      this.$refs.canvas.width = this.$refs.image.width;
-      this.$refs.canvas.height = this.$refs.image.height;
+      const [ width, height ] = [ this.$refs.container.offsetWidth, this.$refs.container.offsetHeight ]
+      if (this.$refs.canvas.width !== width || this.$refs.canvas.height !== height) {
 
-      this.scaleX =  this.$refs.image.width / this.imageMap.width
-      this.scaleY = this.$refs.image.height / this.imageMap.height
+        this.$refs.canvas.width = width;
+        this.$refs.canvas.height = height;
 
+        this.scaleX = width / this.imageMap.width
+        this.scaleY = height / this.imageMap.height
 
-      // If there is an active hot spot ($props.on), then
-      // highlight that in a slightly darker shade
-      if (this.on && this.on !== '') {
+        // If there is an active hot spot ($props.on), then
+        // highlight that in a slightly darker shade
+        if (this.on && this.on !== '') {
 
-        // Get the fill color for an "on" field
-        let fillColor = getComputedStyle(this.$refs.canvas).getPropertyValue('--image-map-on' )
-        if (!fillColor) fillColor = 'lightgreen'
+          // Get the fill color for an "on" field
+          let fillColor = getComputedStyle(this.$refs.canvas).getPropertyValue('--image-map-on')
+          if (!fillColor) fillColor = 'lightgreen'
 
-        // Draw the on map
-        const ctx = this.$refs.canvas.getContext("2d");
-        this.imageMap.hotspots.forEach( (hotspot) => {
-          if (this.on === hotspot.name) {
-            const coords = this.scaleCoords(hotspot.coords)
-            ctx.save()
-            ctx.fillStyle = fillColor
-            ctx.globalAlpha = 0.2
-            ctx.fillRect(coords.x, coords.y, coords.w, coords.h)
-            ctx.restore()
-          }
-        })
+          // Draw the on map
+          const ctx = this.$refs.canvas.getContext("2d");
+          this.imageMap.hotspots.forEach((hotspot) => {
+            if (this.on === hotspot.name) {
+              const coords = this.scaleCoords(hotspot.coords)
+              ctx.save()
+              ctx.fillStyle = fillColor
+              ctx.globalAlpha = 0.2
+              ctx.fillRect(coords.x, coords.y, coords.w, coords.h)
+              ctx.restore()
+            }
+          })
+        }
       }
     },
 
@@ -166,6 +172,7 @@ export default {
 
     // Draw the active map (if any) on top of the image
     draw() {
+      this.resizeMap()
       const ctx = this.$refs.canvas.getContext("2d");
 
       // If we have a current map, draw the highlight
@@ -186,6 +193,7 @@ export default {
     },
 
     trackMouse(evt) {
+      this.resizeMap()
 
       // Get the mouse location relative to the canvas
       const rect = this.$refs.canvas.getBoundingClientRect();
@@ -219,6 +227,12 @@ export default {
       return {
         '--base-z-index': this.zIndex,
       }
+    },
+
+    contents() {
+      const slot = this.$slots.default ? this.$slots.default()[0].el : this.$refs.image
+      console.log( slot )
+      return slot
     }
   }
 

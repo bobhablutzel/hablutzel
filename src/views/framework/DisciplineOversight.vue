@@ -1,5 +1,5 @@
 <template>
-  <ImageMap :image-map='this.imageMap()' src="/images/EA Framework.svg" class="imageMap" on="Oversight"/>
+  <image-map :image-map='this.imageMap()' src="/images/EA Framework.svg" class="imageMap" on="Oversight"/>
   <div class="text-container">
     <p>Oversight...</p>
   </div>

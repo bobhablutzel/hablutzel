@@ -1,5 +1,5 @@
 <template>
-  <ImageMap :image-map='this.imageMap()' src="/images/EA Framework.svg" style="height: 300px; width: 800px;"/>
+  <image-map :image-map='this.imageMap()' src="/images/EA Framework.svg" style="height: 300px; width: 800px;"/>
   <div class="text-container">
     <p>Architecture is a complex topic. Since architecture is
       <router-link :to="{ name: 'DefiningArchitecture'}">fundamentally about the non-functional aspects of a system,</router-link>
@@ -24,7 +24,7 @@
       The Five Disciplines are:</p>
       <ul>
         <li><router-link :to="{name: 'DisciplineBusinessStrategy'}">Business and Strategy</router-link>: Capturing business intent</li>
-        <li><router-link :to="{name: 'DisciplineProductPlatform'}">Platforms and Products</router-link>: Defining a reusable portfolio </li>
+        <li><router-link :to="{name: 'DisciplinePortfolioManagement'}">Portfolio Management</router-link>: Managing and mapping the portfolio of systems </li>
         <li><router-link :to="{name: 'DisciplineImplementation'}">Implementations</router-link>: Building sustainable systems</li>
         <li><router-link :to="{name: 'DisciplineGuidance'}">Guidance</router-link>: Communicating architectural constraints</li>
         <li><router-link :to="{name: 'DisciplineOversight'}">Oversight</router-link>: Evaluating compliance</li>

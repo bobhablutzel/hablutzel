@@ -34,10 +34,19 @@ import DefiningArchitecture from "@/views/academy/DefiningArchitecture"
 import DisciplineGuidance from "@/views/framework/DisciplineGuidance"
 import DisciplineImplementation from "@/views/framework/DisciplineImplementation"
 import DisciplineOversight from "@/views/framework/DisciplineOversight"
-import DisciplineProductPlatform from "@/views/framework/DiscplinePlatformProduct"
-import DisciplineBusinessStrategy from "@/views/framework/DisciplineBusinessStrategy"
-import ARSCIV_X from "@/views/academy/ARSCIV-X"
-
+import DisciplinePortfolioManagement from "@/views/framework/DisciplinePortfolioManagement"
+import DisciplineBusinessStrategy from "@/views/framework/strategy/DisciplineBusinessStrategy"
+import ARSCIVX from "@/views/academy/arsciv-x/ARSCIV-X"
+import ARSCIVXOverview from "@/views/academy/arsciv-x/ARSCIV-X-Overview"
+import ARSCIVXDiscussion from "@/views/academy/arsciv-x/ARSCIV-X-Discussion"
+import ARSCIVXRoles from "@/views/academy/arsciv-x/ARSCIV-X-Roles"
+import ARSCIVXExamples from "@/views/academy/arsciv-x/ARSCIV-X-Examples"
+import OrganizationalAlignment from "@/views/framework/OrganizationalAlignment"
+import ChiefArchitectJD from "@/views/library/jd/ChiefArchitectJD";
+import Library from "@/views/library/Library";
+import LibraryOverview from "@/views/library/LibraryOverview";
+import JobDescriptions from "@/views/library/jd/JobDescriptions";
+import JobDescriptionList from "@/views/library/jd/JobDescriptionList";
 
 // Create the application
 const app = createApp(App)
@@ -67,7 +76,13 @@ const router = createRouter({
                 { path: 'intro', name: 'ArchitectureIntro', component: ArchitectureIntro },
                 { path: 'becoming', name: 'BecomingAnArchitect', component: BecomingAnArchitect },
                 { path: 'defining', name: 'DefiningArchitecture', component: DefiningArchitecture },
-                { path: 'arsciv', name: 'ARSCIV-X', component: ARSCIV_X }
+                { path: 'arsciv', name: 'ARSCIV_X', component: ARSCIVX,
+                    children: [
+                        { path: '', name: 'ARSCIV_X_Overview', component: ARSCIVXOverview },
+                        { path: 'roles', name: 'ARSCIV_X_Roles', component: ARSCIVXRoles },
+                        { path: 'discussion', name: 'ARSCIV_X_Discussion', component: ARSCIVXDiscussion },
+                        { path: 'examples', name: 'ARSCIV_X_Examples', component: ARSCIVXExamples }
+                    ] },
             ]
         },
         { path: '/framework', name: 'Framework', component: Framework,
@@ -75,13 +90,27 @@ const router = createRouter({
               { path: '', name: 'FrameworkIntroduction', component: FrameworkIntroduction },
               { path: 'overview', name: 'FrameworkOverview', component: FrameworkOverview },
               { path: 'fiveDisciplines', name: 'FrameworkFiveDisciplines', component: FiveDisciplines },
+              { path: 'org', name: 'FrameworkOrganizationalAlignment', component: OrganizationalAlignment },
               { path: 'tbd', name: 'UnderConstruction', component: UnderConstruction },
               { path: 'busstrat', name: 'DisciplineBusinessStrategy', component: DisciplineBusinessStrategy },
-              { path: 'prodplat', name: 'DisciplineProductPlatform', component: DisciplineProductPlatform },
+              { path: 'prodplat', name: 'DisciplinePortfolioManagement', component: DisciplinePortfolioManagement },
               { path: 'impl', name: 'DisciplineImplementation', component: DisciplineImplementation },
               { path: 'guide', name: 'DisciplineOversight', component: DisciplineOversight },
               { path: 'over', name: 'DisciplineGuidance', component: DisciplineGuidance },
-          ]}
+          ]
+        },
+        { path: '/library', name: 'Library', component: Library,
+            children: [
+                { path: '', name: 'LibraryOverview', component: LibraryOverview },
+                { path: 'jd', name: 'JobDescriptions', component: JobDescriptions,
+                    children: [
+                        { path: '', name: 'JobDescriptionList', component: JobDescriptionList },
+                        { path: 'chiefArch', name: 'ChiefArchitectJD', component: ChiefArchitectJD }
+                    ]
+                },
+            ]
+        },
+
     ],
 })
 

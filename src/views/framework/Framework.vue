@@ -17,13 +17,13 @@ export default {
         { label:'Introduction', to: {name: 'FrameworkIntroduction' }},
         { label:'Overview', to: {name: 'FrameworkOverview' }, items: [
             { label: 'The Five Disciplines', to: { name: 'FrameworkFiveDisciplines' }},
-            { label: 'Organizational Alignment', to: { name: 'UnderConstruction' }},
+            { label: 'Organizational Alignment', to: { name: 'FrameworkOrganizationalAlignment' }},
             { label: 'Federation', to: { name: 'UnderConstruction' }},
           ]
         },
         {
-          label: 'Business & Strategy', items: [
-            { label: 'Overview', to: { name: 'UnderConstruction' }},
+          label: 'Business & Strategy', to: {name: 'DisciplineBusinessStrategy' }, items: [
+            { label: 'Overview', to: { name: 'DisciplineBusinessStrategy' }},
             { label: 'Strategy and Tactics', to: { name: 'UnderConstruction' }},
             { label: 'Business Capabilities', to: { name: 'UnderConstruction' }},
             { label: 'Differentiation', to: { name: 'UnderConstruction' }},
@@ -31,20 +31,20 @@ export default {
             { label: 'Technology Capabilities', to: { name: 'UnderConstruction' }},
           ]
         },
-        { label:'Product & Platform', items: [
-            { label: 'Overview', to: { name: 'UnderConstruction' }}
+        { label:'Portfolio Management', items: [
+            { label: 'Overview', to: { name: 'DisciplinePortfolioManagement' }}
           ]
         },
         { label:'Implementation', items: [
-            { label: 'Overview', to: { name: 'UnderConstruction' }}
+            { label: 'Overview', to: { name: 'DisciplineImplementation' }}
           ]
         },
         { label:'Guidance', items: [
-            { label: 'Overview', to: { name: 'UnderConstruction' }}
+            { label: 'Overview', to: { name: 'DisciplineGuidance' }}
           ]
         },
-        { label:'Overview', items: [
-          { label: 'Overview', to: { name: 'UnderConstruction' }}
+        { label:'Oversight', items: [
+          { label: 'Overview', to: { name: 'DisciplineOversight' }}
         ]
         },
       ]

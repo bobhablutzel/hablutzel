@@ -1,5 +1,5 @@
 <template>
-  <ImageMap :image-map='this.imageMap()' src="/images/EA Framework.svg" class="imageMap" on="Business & Strategy"/>
+  <image-map :image-map='this.imageMap()' src="/images/EA Framework.svg" class="imageMap" on="Business & Strategy"/>
   <div class="text-container">
     <p>The Business and Strategy discipline focuses on making sure that the company's strategic intent
     is will understood by the technologists, and that there is clarity on the priorities of the
@@ -13,7 +13,7 @@
     platforms) but often diverges for a number of reasons. This divergence can be managed, but only
     if it is surfaced and understood.</p>
     <p>The Business and Strategy discipline is unique among the disciplines in that the Enterprise
-      Architecture team is <router-link :to="{name: 'ARSCIV-X'}">responsible</router-link>
+      Architecture team is <router-link :to="{name: 'ARSCIV_X_Overview'}">responsible</router-link>
       for creating and maintaining the artifacts, but not for
     the thought leadership that underlies those artifacts. Put another way, while the Enterprise
     Architecture team often creates the Business Capability model, they are not in the position to
