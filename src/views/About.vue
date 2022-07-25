@@ -20,8 +20,11 @@
     </panel>
     <panel header="About this site" style="margin-top: 5px">
       <p>
-        The site is written in <a href="https://vuejs.org/">Vue3</a> and hosted on TBD. The source code
-        for the site is open source and available TBD if you are interested in learning how it was put
+        The site is written in <a href="https://vuejs.org/" target=”_blank”>Vue3</a>
+        and hosted on <a href="https://render.com/" target=”_blank”>render.com</a>. The source code
+        for the site is open source and
+        <a href="https://github.com/bobhablutzel/hablutzel" target="_blank">available</a>
+        if you are interested in learning how it was put
         together.
       </p>
     </panel>
