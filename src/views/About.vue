@@ -14,7 +14,7 @@
             to share his experiences with other
             architects and aspiring architects worldwide.
           </p>
-          <a href="mailto:bob@hablutzel.com">Contact via email</a>
+          <a href="mailto:info@hablutzel.com">Contact via email</a>
         </div>
       </div>
     </panel>
